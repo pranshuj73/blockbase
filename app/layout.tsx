@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 }
 
 import {Providers} from "./providers";
+import Header from '@/components/Header'
 
 export default function RootLayout({
   children,
@@ -19,7 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   )

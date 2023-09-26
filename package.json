@@ -13,6 +13,7 @@
     "framer-motion": "^10.16.4",
     "next": "latest",
     "react": "latest",
+    "react-animated-cursor": "^2.10.1",
     "react-dom": "latest"
   },
   "devDependencies": {

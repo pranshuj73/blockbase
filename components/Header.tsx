@@ -1,9 +1,9 @@
 "use client"
 
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@nextui-org/navbar";
-import { Button } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "@nextui-org/link"
 
 export default function Header() {
 	return (
@@ -14,17 +14,17 @@ export default function Header() {
 			</NavbarBrand>
 			<NavbarContent className="hidden sm:flex gap-4" justify="center">
 				<NavbarItem>
-					<Link color="foreground" href="#">
+					<Link underline="hover" color="foreground" href="#">
 						About
 					</Link>
 				</NavbarItem>
 				<NavbarItem>
-					<Link href="#" aria-current="page">
+					<Link underline="hover" color="foreground" href="#">
 						Customers
 					</Link>
 				</NavbarItem>
 				<NavbarItem>
-					<Link color="foreground" href="#">
+					<Link underline="hover" color="foreground" href="#">
 						Contact
 					</Link>
 				</NavbarItem>

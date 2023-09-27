@@ -1,7 +1,9 @@
 "use client"
 
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu } from "@nextui-org/react";
-import { Button } from "@nextui-org/button";
+// fix the imports later
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, cn} from "@nextui-org/react";
+
 import { motion } from "framer-motion";
 import { Link } from "@nextui-org/link"
 import {ChevronDown, Document, Activity, Flash, Server, TagUser, Scale} from "@/components/Icons";
@@ -36,63 +38,41 @@ export default function Header() {
 					</NavbarItem>
 					<NavbarItem>
 						<Dropdown>
-							<NavbarItem>
-								<DropdownTrigger>
-									<Button
-										disableRipple
-										className="p-0 bg-transparent data-[hover=true]:bg-transparent"
-										endContent={icons.chevron}
-										radius="sm"
-										variant="light"
-									>
-										Live Chains
-									</Button>
-								</DropdownTrigger>
-							</NavbarItem>
-							<DropdownMenu
-								aria-label="Document Chain"
-								className="w-[340px]"
-								itemClasses={{
-									base: "gap-4",
-								}}
-							>
+							<DropdownTrigger>
+								<Button variant="bordered">Live Chain</Button>
+							</DropdownTrigger>
+							<DropdownMenu variant="faded" aria-label="Dropdown menu with icons">
 								<DropdownItem
-									key="document"
-									description="Access documents stored on Live Chain"
-									startContent={icons.document}
+								key="Document Chain"
+								startContent={}
 								>
-									Document Chain
+								New file
 								</DropdownItem>
 								<DropdownItem
-									key="usage_metrics"
-									description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
-									startContent={icons.activity}
+								key="copy"
+								shortcut="⌘C"
+								startContent={<CopyDocumentIcon className={iconClasses} />}
 								>
-									Usage Metrics
+								Copy link
 								</DropdownItem>
 								<DropdownItem
-									key="production_ready"
-									description="ACME runs on ACME, join us and others serving requests at web scale."
-									startContent={icons.flash}
+								key="edit"
+								shortcut="⌘⇧E"
+								startContent={<EditDocumentIcon className={iconClasses} />}
 								>
-									Production Ready
+								Edit file
 								</DropdownItem>
 								<DropdownItem
-									key="99_uptime"
-									description="Applications stay on the grid with high availability and high uptime guarantees."
-									startContent={icons.server}
+								key="delete"
+								className="text-danger"
+								color="danger"
+								shortcut="⌘⇧D"
+								startContent={<DeleteDocumentIcon className={cn(iconClasses, "text-danger")} />}
 								>
-									+99% Uptime
-								</DropdownItem>
-								<DropdownItem
-									key="supreme_support"
-									description="Overcome any challenge with a supporting team ready to respond."
-									startContent={icons.user}
-								>
-									+Supreme Support
+								Delete file
 								</DropdownItem>
 							</DropdownMenu>
-						</Dropdown>
+							</Dropdown>
 					</NavbarItem>
 				</NavbarContent>
 				<NavbarContent justify="end">
